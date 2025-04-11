@@ -77,6 +77,7 @@ int main()
 ~~~
 # OUTPUT
 ![Symbol Found](https://github.com/user-attachments/assets/7a982fea-2feb-4271-8868-45ca0dc96128)
+
 ![Symbol not found](https://github.com/user-attachments/assets/8f811fc7-34e3-4c5f-a29c-acf8db1bf976)
 
 # RESULT
