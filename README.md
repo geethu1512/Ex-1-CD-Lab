@@ -1,7 +1,7 @@
 # Ex-1 IMPLEMENTATION-OF-SYMBOL-TABLE
-# Register Number :
-# Date : 
-# AIM :
+# Register Number : 212224040089
+# Date : 11/04/2025
+# AIM : 
 ## To write a C program to implement a symbol table.
 # ALGORITHM
 1.	Start the program.
@@ -13,6 +13,71 @@
 7.	To reach a variable, enter the variable to be searched and the symbol table has been checked for the corresponding variable, the variable along with its address is displayed as a result.
 8.	Stop the program. 
 # PROGRAM
+~~~
+#include <stdio.h> 
+#include <ctype.h> 
+#include <string.h> 
+#include <stdlib.h> 
+#define MAX_EXPRESSION_SIZE 100
+
+int main() 
+{
+    int i = 0, j = 0, x = 0, n, flag = 0; 
+    void *add[5]; 
+    char b[MAX_EXPRESSION_SIZE], d[15], c, srch;
+    printf("Enter the Expression terminated by $: "); 
+    while ((c = getchar()) != '$' && i < MAX_EXPRESSION_SIZE - 1) 
+    { 
+        b[i++] = c; 
+        
+    } 
+    b[i] = '\0'; n = i - 1;
+    printf("Given Expression: %s\n", b);
+    printf("\nSymbol Table\n"); 
+    printf("Symbol\taddr\ttype\n");
+    for (j = 0; j <= n; j++) 
+    {
+        c = b[j]; 
+        if (isalpha((unsigned char)c)) 
+        { 
+            if (j == n || b[j + 1] == '+' || b[j + 1] == '-' || b[j + 1] == '*' || b[j + 1] == '=') 
+            { 
+                void *p = malloc(sizeof(char)); 
+                if (p == NULL) 
+                { 
+                    printf("Memory allocation failed\n");
+                    return 1; 
+                } 
+                add[x] = p; d[x] = c; 
+                printf("%c\t%p\tidentifier\n", c, p); x++; 
+            } 
+        }
+    }
+    printf("\nThe symbol to be searched: "); 
+    getchar(); srch = getchar();
+    for (i = 0; i < x; i++) 
+    { 
+        if (srch == d[i]) 
+        { 
+        printf("Symbol Found\n"); 
+        printf("%c@address %p\n", srch, add[i]); 
+        flag = 1; break; 
+        } 
+    }
+    if (flag == 0) 
+    {
+        printf("Symbol Not Found\n");
+    }
+    for (i = 0; i < x; i++) 
+    { 
+        free(add[i]); 
+    }
+    return 0;    
+}
+~~~
 # OUTPUT
+![Symbol Found](https://github.com/user-attachments/assets/7a982fea-2feb-4271-8868-45ca0dc96128)
+![Symbol not found](https://github.com/user-attachments/assets/8f811fc7-34e3-4c5f-a29c-acf8db1bf976)
+
 # RESULT
 ### The program to implement a symbol table is executed and the output is verified.
